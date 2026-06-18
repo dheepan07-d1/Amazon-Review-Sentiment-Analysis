@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>AI Sentiment Analysis</title>
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🤖 AI Sentiment Analysis System</h1>
+
+<form action="/predict" method="POST">
+
+<textarea
+name="review"
+placeholder="Enter your review..."
+required>{{review if review else ''}}</textarea>
+
+<button type="submit">
+Predict Sentiment
+</button>
+
+</form>
+
+{% if prediction %}
+
+<div class="result">
+
+<h2>{{emoji}} {{prediction}}</h2>
+
+<h3>Confidence : {{confidence}}%</h3>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+
+</html>
+```
